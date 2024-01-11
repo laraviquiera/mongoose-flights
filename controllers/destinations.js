@@ -44,5 +44,3 @@ async function index(req, res) {
     const flightId = req.params.id;
     res.render('flights/add-destination', { title: 'Add A Destination', flightId });
   }
-
-
