@@ -32,17 +32,17 @@ async function create(req, res) {
       flight.destinations.push({ airport, arrival });
       await flight.save();
   
-      res.redirect(`/flights/${flightId}`);
+      res.render('destinations/index', { title: 'Flight Destinations', flightId });
     } catch (err) {
-        console.error(err);
-        res.render(`/flights/${flightId}`, { errorMsg: err.message })
+      console.error(err);
+      res.render('destinations/index', { errorMsg: err.message, flightId });
     }
   }
   
 // destination form
 async function index(req, res) {
     const flightId = req.params.id;
-    res.render('flights/add-destination', { flightId });
+    res.render('flights/add-destination', { title: 'Add A Destination', flightId });
   }
 
 

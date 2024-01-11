@@ -2,14 +2,14 @@
 <h1><%= flight.airline %> Flight <%= flight.flightNo %></h1>
 <!-- Other flight details -->
 
-<h2>Destinations</h2>
+<h2>Flight Destinations</h2>
 <ul>
   <% flight.destinations.forEach(destination => { %>
     <li>Airport: <%= destination.airport %>, Arrival: <%= destination.arrival %></li>
   <% }); %>
 </ul>
 
-<h2>Add Destination</h2>
+<h2>Add A Destination</h2>
 <form action="/flights/<%= flight._id %>/add-destination" method="POST">
   <label for="airport">Airport:</label>
   <select name="airport" id="airport" required>
@@ -25,6 +25,6 @@
 
   <!-- Add more form fields as needed -->
 
-  <button type="submit">Add Destination</button>
+  <button type="submit">Submit</button>
 </form>
 <%- include('../partials/footer') %>
