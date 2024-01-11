@@ -9,11 +9,11 @@ module.exports = {
 //show flight details
 async function show(req, res) {
     try {
-      const flight = await Flight.findById(req.params.id);
-      res.render('flights/show', { flight });
+      const flight = await Flight.findById(req.params.id).populate('destinations');
+      res.render('flights/show', { flight, title: 'Flight Details' });
     } catch (err) {
       console.error(err);
-      res.render('flights/show', { errorMsg: error.message })
+      res.render('flights/show', { errorMsg: err.message })
     }
   }
 
@@ -35,7 +35,7 @@ async function create(req, res) {
       res.redirect(`/flights/${flightId}`);
     } catch (err) {
         console.error(err);
-        res.render(`/flights/${flightId}`, { errorMsg: error.message })
+        res.render(`/flights/${flightId}`, { errorMsg: err.message })
     }
   }
   

@@ -17,7 +17,7 @@ async function create(req, res) {
         res.redirect('/flights/new');
     } catch(err) {
         console.log(err);
-        res.render('flights/new', { errorMsg: error.message, title: 'Add A New Flight' })
+        res.render('flights/new', { errorMsg: err.message, title: 'Add A New Flight' })
     }
 }
 
