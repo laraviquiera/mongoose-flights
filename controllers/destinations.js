@@ -1,13 +1,14 @@
-const Flight = require('../models/destinations');
+const Destination = require('../models/destinations');
 const Flight = require('../models/flight');
 
 module.exports = {
-    destinationForm,
-    addDestination,
-    showFlightDetails
+    index,
+    create,
+    show
 }
 
-async function showFlightDetails(req, res) {
+//show flight details
+async function show(req, res) {
     try {
       const flight = await Flight.findById(req.params.id);
       res.render('flights/show', { flight });
@@ -17,7 +18,8 @@ async function showFlightDetails(req, res) {
     }
   }
 
-async function addDestination(req, res) {
+//add a destination
+async function create(req, res) {
     const flightId = req.params.id;
     const { airport, arrival } = req.body;
   
@@ -38,8 +40,8 @@ async function addDestination(req, res) {
     }
   }
   
-
-async function destinationForm(req, res) {
+// destination form
+async function index(req, res) {
     const flightId = req.params.id;
     res.render('flights/add-destination', { flightId });
   }

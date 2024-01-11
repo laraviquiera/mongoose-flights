@@ -4,18 +4,8 @@ module.exports = {
     index,
     new: newFlight,
     create
-    // show
 }
 
-// async function show(req, res) {
-//     try {
-//       const flight = await Flight.findById(req.params.id).populate('destinations');
-//       res.render('flights/show', { flight });
-//     } catch (err) {
-//       console.error(err);
-//       res.render('flights/show', { errorMsg: error.message })
-//     }
-//   }
 
 async function newFlight(req, res) {
     res.render('flights/new', { errorMsg: '', title: 'Add A New Flight'});
