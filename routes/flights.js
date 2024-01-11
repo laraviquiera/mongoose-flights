@@ -10,4 +10,5 @@ router.get('/new', flightsCtrl.new);
 //POST create
 router.post('/', flightsCtrl.create);
 
+
 module.exports = router;

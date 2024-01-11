@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h1>Add Destination</h1> 
+    <!-- Form to add a destination -->
+    <form action="/flights/<%= flightId %>/add-destination" method="post">
+        <label for="airport">Airport:</label>
+        <input type="text" id="airport" name="airport" required>
+      
+        <label for="arrival">Arrival Date:</label>
+        <input type="date" id="arrival" name="arrival" required>
+      
+        <button type="submit">Add Destination</button>
+      </form>
+
+<%- include('../partials/footer') %>
