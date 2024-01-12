@@ -1,8 +1,43 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(206, 223, 226);
 }
 
 a {
-  color: #00B7FF;
+  color: #07445d;
+}
+
+
+.title {
+  color: rgb(12, 76, 110);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+th:last-child, td:last-child {
+  text-align: center;
 }
