@@ -26,18 +26,26 @@
   <button type="submit">Submit</button>
 </form>
 
-<!-- views/flights/show.ejs -->
-
-<!-- Existing flight details... -->
 
 <h2>Tickets</h2>
+<ul>
+  <% tickets.forEach(ticket => { %>
+    <li>
+      Seat: <%= ticket.seat %>, Price: <%= ticket.price %>
+    </li>
+  <% }); %>
+</ul>
 
-<form action="/flights/:id/tickets/new" method="POST">
+<!-- Form for creating new tickets -->
+<h2>Create a New Ticket</h2>
+
+<form action="/flights/<%= flight._id %>/tickets" method="POST">
   <!-- Other form fields -->
   <label for="seat">Seat:</label>
   <!-- Input field with pattern attribute -->
   <input type="text" id="seat" name="seat" required pattern="[A-F][1-9]\d?">
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" min="0" required>
   <button type="submit">Create Ticket</button>
 </form>
-
 <%- include('../partials/footer') %>

@@ -4,16 +4,11 @@ const Ticket = require('../models/ticket');
 
 module.exports = {
     new: newTicket,
-    create: createTicket
+    create
 };
 
 
-async function newTicket(req, res) {
-  const flightId = req.params.id;
-  res.render('tickets/new', { title: 'New Ticket', flightId });
-}
-
-async function createTicket(req, res) {
+async function create(req, res) {
   const flightId = req.params.id;
   const { seat, price } = req.body;
 
@@ -28,14 +23,18 @@ async function createTicket(req, res) {
     await ticket.save();
 
     // Add the new ticket to the flight's tickets array
+    flight.tickets = flight.tickets || [];
     flight.tickets.push(ticket._id);
     await flight.save();
 
     res.redirect(`/flights/${flightId}`);
   } catch (err) {
-    console.error(err);
+    console.log(err);
     res.render('tickets/new', { errorMsg: err.message });
   }
 }
 
-
+async function newTicket(req, res) {
+  const flightId = req.params.id;
+  res.render('tickets/new', { title: 'New Ticket', flightId });
+}
