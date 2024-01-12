@@ -4,6 +4,13 @@ body {
   background-color: rgb(206, 223, 226);
 }
 
+.main-title {
+  text-align: center;
+  color: white;
+  background: url(//i.imgur.com/lW9YH6N.png);
+  background-size: cover;
+}
+
 a {
   color: #07445d;
 }
@@ -79,12 +86,12 @@ label {
   color: #333;
 }
 
-
 input {
-  width: 100%;
-  padding: 8px;
+  width: 250px;
+  padding: 6px;
   margin-bottom: 10px;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 button {
